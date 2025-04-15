@@ -76,7 +76,7 @@ public class BeanTest {
 
     @Test 
     public void getAllBeanTest(){
-        스프링 컨테이너 안에 있는 모든 빈을 조회하는 테스트
+        // 스프링 컨테이너 안에 있는 모든 빈을 조회하는 테스트
         for(String name:context.getBeanDefinitionNames()){
             System.out.println(name);
         }
@@ -86,7 +86,7 @@ public class BeanTest {
 
 출력되는 스프링 빈
 
-```java
+```text
 org.springframework.context.annotation.internalConfigurationAnnotationProcessor
 org.springframework.context.annotation.internalAutowiredAnnotationProcessor
 org.springframework.context.annotation.internalCommonAnnotationProcessor
@@ -155,7 +155,7 @@ context에서 객체를 두번 가져왔을 때를 시험해보자.
 
 출력
 
-```java
+```text
 com.example.todo_api.bean.MyBean@1583741e
 com.example.todo_api.bean.MyBean@1583741e
 ```
@@ -201,7 +201,7 @@ public class MyBean {}
 @EnableAutoConfiguration
 @ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),
 		@Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })
-public @interface SpringBootApplication {
+public @interface SpringBootApplication {}
 ```
 
 `@ComponentScan` 이 들어있는 것을 볼 수 있다.
@@ -331,7 +331,7 @@ MyBean을 통해서 가져온 MySubBean 객체가 MySubBean 객체와 같은 것
 
 출력
 
-```java
+```text
 com.example.todo_api.bean.MySubBean@29a5f4e7
 com.example.todo_api.bean.MySubBean@29a5f4e7
 ```
@@ -381,7 +381,7 @@ public class BeanTest2 {
 
 - 결과
 
-    ```java
+    ```text
     14:59:30.363 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.todo_api.bean.BeanTest2]: BeanTest2 does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
     14:59:30.671 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.todo_api.TodoApiApplication for test class com.example.todo_api.bean.BeanTest2
     
